@@ -11,12 +11,31 @@ namespace PlSight.BegCShCollections.DaysOfWeek {
             string[] daysOfWeek = {
                 "Monday",
                 "Tuesday",
-                "Wednesday",
+                "Wnesday",
                 "Thursday",
                 "Friday",
                 "Saturday",
                 "Sunday"
             };
+
+            Console.WriteLine("Before correction:");
+            foreach (string day in daysOfWeek) {
+                Console.WriteLine(day);
+            }
+
+            daysOfWeek[2] = "Wednesday";
+
+            Console.WriteLine("\r\nAfter correction:");
+            foreach (string day in daysOfWeek) {
+                Console.WriteLine(day);
+            }
+
+            //Console.WriteLine("Which day do you want to display?");
+            //Console.Write("(Monday = 1, etc.) > ");
+            //int iDay = int.Parse(Console.ReadLine());
+
+            //string chosenDay = daysOfWeek[iDay - 1];
+            //Console.WriteLine($"That day is {chosenDay}");
         }
     }
 }

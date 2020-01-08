@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlSight.BegCShCollections.ReadAllCountries {
     class CsvReader {
@@ -13,15 +10,16 @@ namespace PlSight.BegCShCollections.ReadAllCountries {
             this._csvFilePath = csvFilePath;
         }
 
-        public List<Country> ReadAllCountries() {
-            List<Country> countries = new List<Country>();
+        public Dictionary<string, Country> ReadAllCountries() {
+            var countries = new Dictionary<string, Country>();
             using (StreamReader sr = new StreamReader(_csvFilePath)) {
                 // read header line (and ignore it)
                 sr.ReadLine();
                 string csvLine;
 
                 while((csvLine = sr.ReadLine()) != null) {
-                    countries.Add(ReadCountryFromCsvLine(csvLine));
+                    Country country = ReadCountryFromCsvLine(csvLine);
+                    countries.Add(country.Code, country);
                 }
             }
             return countries;

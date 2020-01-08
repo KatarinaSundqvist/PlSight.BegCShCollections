@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlSight.BegCShCollections.ReadAllCountries {
     class Program {
         static void Main(string[] args) {
             string filePath = @"C:\Temp\Pop by Largest Final.csv";
             CsvReader reader = new CsvReader(filePath);
+            Dictionary<string, Country> countries = reader.ReadAllCountries();
 
-            List<Country> countries = reader.ReadAllCountries();
-            Country lilliput = new Country("Lilliput", "LIL", "Somewhere", 2_000_000);
-            int lilliputIndex = countries.FindIndex(x => x.Population < 2_000_000);
-            countries.Insert(lilliputIndex, lilliput);
-            countries.RemoveAt(lilliputIndex);
+            Console.WriteLine("Which country code do you want to look up?");
+            string userInput = Console.ReadLine();
 
-            foreach (Country country in countries) {
-                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            bool gotCountry = countries.TryGetValue(userInput, out Country country);
+            if (!gotCountry) {
+                Console.WriteLine($"Sorry, there is no code with code {userInput}");
             }
-            Console.WriteLine($"{countries.Count} countries");
+            else {
+                Console.WriteLine($"{country.Name} has population {PopulationFormatter.FormatPopulation(country.Population)}");
+            }
+
         }
     }
 }

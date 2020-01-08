@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlSight.BegCShCollections.TopTenPops {
+namespace PlSight.BegCShCollections.ReadAllCountries {
     class PopulationFormatter {
         public static string FormatPopulation(int population) {
             if (population == 0) {

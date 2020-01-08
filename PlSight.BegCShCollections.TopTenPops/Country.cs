@@ -1,4 +1,4 @@
-﻿namespace PlSight.BegCShCollections.TopTenPops {
+﻿namespace PlSight.BegCShCollections.ReadAllCountries {
     class Country {
         public string Name { get; }
         public string Code { get; }

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlSight.BegCShCollections.DaysOfWeek", "PlSight.BegCShCollections.DaysOfWeek\PlSight.BegCShCollections.DaysOfWeek.csproj", "{9E6C3394-E569-41A5-8D24-8200D97A88F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlSight.BegCShCollections.TopTenPops", "PlSight.BegCShCollections.TopTenPops\PlSight.BegCShCollections.TopTenPops.csproj", "{3E62A65C-5B23-4D7D-A98F-2617ABBE2BCE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlSight.BegCShCollections.ReadAllCountries", "PlSight.BegCShCollections.TopTenPops\PlSight.BegCShCollections.ReadAllCountries.csproj", "{3E62A65C-5B23-4D7D-A98F-2617ABBE2BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlSight.BegCShCollections.DaysOfWeekList", "PlSight.BegCShCollections.DaysOfWeekList\PlSight.BegCShCollections.DaysOfWeekList.csproj", "{D7210730-920C-4C83-B2A3-3A5A3617803C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3E62A65C-5B23-4D7D-A98F-2617ABBE2BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E62A65C-5B23-4D7D-A98F-2617ABBE2BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E62A65C-5B23-4D7D-A98F-2617ABBE2BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7210730-920C-4C83-B2A3-3A5A3617803C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7210730-920C-4C83-B2A3-3A5A3617803C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7210730-920C-4C83-B2A3-3A5A3617803C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7210730-920C-4C83-B2A3-3A5A3617803C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlSight.BegCShCollections.ReadAllCountries {
     class Program {
@@ -11,15 +9,20 @@ namespace PlSight.BegCShCollections.ReadAllCountries {
             CsvReader reader = new CsvReader(filePath);
 
             List<Country> countries = reader.ReadAllCountries();
-            Country lilliput = new Country("Lilliput", "LIL", "Somewhere", 2_000_000);
-            int lilliputIndex = countries.FindIndex(x => x.Population < 2_000_000);
-            countries.Insert(lilliputIndex, lilliput);
-            countries.RemoveAt(lilliputIndex);
 
-            foreach (Country country in countries) {
+            var filteredCountries = countries.Where(x => !x.Name.Contains(','));
+            var filteredCountries2 = from country in countries
+                                     where !country.Name.Contains(',')
+                                     select country;
+            // mixing the different LINQ syntaxes will make some people very upset
+            // (like we have done here!)
+
+            foreach (Country country in filteredCountries.Take(20)) {
                 Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
             }
-            Console.WriteLine($"{countries.Count} countries");
+            foreach (Country country in filteredCountries2.Take(20)) {
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
+            }
         }
     }
 }

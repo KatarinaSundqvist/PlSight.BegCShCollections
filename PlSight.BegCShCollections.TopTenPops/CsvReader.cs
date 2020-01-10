@@ -13,15 +13,22 @@ namespace PlSight.BegCShCollections.ReadAllCountries {
             this._csvFilePath = csvFilePath;
         }
 
-        public List<Country> ReadAllCountries() {
-            List<Country> countries = new List<Country>();
+        public Dictionary<string, List<Country>> ReadAllCountries() {
+            var countries = new Dictionary<string, List<Country>>();
             using (StreamReader sr = new StreamReader(_csvFilePath)) {
                 // read header line (and ignore it)
                 sr.ReadLine();
                 string csvLine;
 
-                while((csvLine = sr.ReadLine()) != null) {
-                    countries.Add(ReadCountryFromCsvLine(csvLine));
+                while ((csvLine = sr.ReadLine()) != null) {
+                    Country country = ReadCountryFromCsvLine(csvLine);
+                    if (countries.ContainsKey(country.Region)) {
+                        countries[country.Region].Add(country);
+                    }
+                    else {
+                        List<Country> countriesInRegion = new List<Country>() { country };
+                        countries.Add(country.Region, countriesInRegion);
+                    }
                 }
             }
             return countries;
